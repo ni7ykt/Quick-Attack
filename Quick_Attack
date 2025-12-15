@@ -142,4 +142,4 @@ if _G.FastAttack then
 end
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dt106101-ai/fast-attack-v1.0/refs/heads/main/MAX%20V2.0"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ni7ykt/Quick-Attack/refs/heads/main/zyb" ))()
