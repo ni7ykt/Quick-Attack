@@ -21,7 +21,7 @@ if isLocalPlayerWhitelisted then
         Text = "玩家:"..localPlayer.Name.."，腳本由可軒和初音共同製作",
         Duration = 7,
     })
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kismiletest/-/refs/heads/main/zyy"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ni7ykt/Quick-Attack/refs/heads/main/Quick_Attack"))()
 else
     localPlayer:Kick("请联系作者添加白名单")
 end
